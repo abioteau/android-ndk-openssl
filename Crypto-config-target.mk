@@ -740,7 +740,7 @@ mips_exclude_files := $(mips32r6_exclude_files)
 endif
 
 LOCAL_CFLAGS += $(common_cflags)
-LOCAL_C_INCLUDES += $(common_c_includes)
+LOCAL_C_INCLUDES += $(patsubst external/openssl/%,$(LOCAL_PATH)/%,$(common_c_includes))
 
 LOCAL_SRC_FILES_arm := $(filter-out $(arm_exclude_files),$(common_src_files) $(arm_src_files))
 LOCAL_CFLAGS_arm += $(arm_cflags)
